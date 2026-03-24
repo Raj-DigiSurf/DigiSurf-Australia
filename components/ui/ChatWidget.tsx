@@ -11,6 +11,29 @@ interface Message {
 
 const GREETING = "Hi! I'm DigiSurf's AI assistant.\n\nAsk me anything about our services, pricing, or how AI automation could work for your business."
 
+function renderContent(text: string) {
+  return text.split('\n').map((line, i) => {
+    // Convert **bold** and *italic*
+    const parts: React.ReactNode[] = []
+    const regex = /\*\*(.+?)\*\*|\*(.+?)\*/g
+    let last = 0
+    let match
+    while ((match = regex.exec(line)) !== null) {
+      if (match.index > last) parts.push(line.slice(last, match.index))
+      if (match[1]) parts.push(<strong key={match.index}>{match[1]}</strong>)
+      else if (match[2]) parts.push(<em key={match.index}>{match[2]}</em>)
+      last = match.index + match[0].length
+    }
+    if (last < line.length) parts.push(line.slice(last))
+    return (
+      <span key={i}>
+        {parts.length ? parts : '\u00A0'}
+        {i < text.split('\n').length - 1 && <br />}
+      </span>
+    )
+  })
+}
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
@@ -139,7 +162,7 @@ export function ChatWidget() {
                   </div>
                 )}
                 <div
-                  className={`max-w-[78%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap break-words ${
+                  className={`max-w-[78%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed break-words ${
                     msg.role === 'user'
                       ? 'bg-gradient-to-br from-[#00D4FF] to-[#3B7BFF] text-[#050B18] font-medium rounded-tr-sm'
                       : isLight
@@ -147,7 +170,7 @@ export function ChatWidget() {
                         : 'bg-white/[0.07] text-[#ddeaf8] rounded-tl-sm border border-white/[0.06]'
                   }`}
                 >
-                  {msg.content}
+                  {renderContent(msg.content)}
                 </div>
               </div>
             ))}

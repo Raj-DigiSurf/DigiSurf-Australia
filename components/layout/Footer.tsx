@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
+import { LogoFull } from '@/components/ui/Logo'
 
 const services = [
   { label: 'AI Chatbots', href: '#services' },
@@ -30,10 +31,8 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <span className="text-xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                Digi<span className="text-gradient">Surf</span>
-              </span>
+            <Link href="/" className="inline-flex items-center gap-2 mb-4 hover:opacity-90 transition-opacity">
+              <LogoFull height={28} />
               <span className="rounded-full border border-[rgba(0,212,255,0.3)] bg-[rgba(0,212,255,0.1)] px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-[#00D4FF]">
                 AU
               </span>

@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { LogoFull, LogoMark } from '@/components/ui/Logo'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -40,14 +41,11 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00D4FF] to-[#3B7BFF] flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:shadow-cyan-500/40 group-hover:scale-105 transition-all duration-300">
-                <Zap className="w-4 h-4 text-[#050B18]" strokeWidth={2.5} />
+            <a href="/" className="flex items-center gap-2 group hover:opacity-90 transition-opacity duration-200">
+              <div className="group-hover:scale-105 transition-transform duration-300">
+                <LogoFull height={30} />
               </div>
-              <span className="text-lg font-bold tracking-tight">
-                Digi<span className="text-gradient-cyan">Surf</span>
-              </span>
-              <span className="hidden sm:inline-block badge badge-cyan text-[10px] py-0.5 px-2">AU</span>
+              <span className="hidden sm:inline-block badge badge-cyan text-[10px] py-0.5 px-2 ml-1">AU</span>
             </a>
 
             {/* Desktop Nav */}

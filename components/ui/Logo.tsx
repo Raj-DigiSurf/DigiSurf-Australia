@@ -118,13 +118,13 @@ export function Logo({ variant = 'dark', width = 200, className = '' }: LogoProp
       {/* AUSTRALIA subtext */}
       <text
         x="182"
-        y="60"
+        y="63"
         textAnchor="middle"
         fontFamily="var(--font-logo), 'Montserrat', sans-serif"
-        fontWeight="200"
-        fontSize="10"
-        fill={isDark ? '#00d4ff' : '#0870b8'}
-        letterSpacing="7"
+        fontWeight="500"
+        fontSize="13"
+        fill={isDark ? '#00d4ff' : '#0d6bca'}
+        letterSpacing="5"
       >
         AUSTRALIA
       </text>

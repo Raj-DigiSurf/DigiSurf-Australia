@@ -22,16 +22,12 @@ export function ThemeToggle() {
           : 'bg-[#dce8f5] border border-[#0d6bca]/30'
       }`}
     >
-      {/* Track icons */}
-      <span className="absolute left-1.5 text-[11px]">🌙</span>
-      <span className="absolute right-1.5 text-[11px]">☀️</span>
-
       {/* Sliding thumb */}
       <span
-        className={`absolute top-0.5 w-6 h-6 rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs ${
+        className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs ${
           isDark
-            ? 'left-0.5 bg-[#00D4FF] shadow-[0_0_8px_rgba(0,212,255,0.5)]'
-            : 'left-[calc(100%-1.75rem)] bg-white shadow-[0_0_8px_rgba(13,107,202,0.3)]'
+            ? 'translate-x-0 bg-[#00D4FF] shadow-[0_0_8px_rgba(0,212,255,0.5)]'
+            : 'translate-x-7 bg-white shadow-[0_0_8px_rgba(13,107,202,0.3)]'
         }`}
       >
         {isDark ? '🌙' : '☀️'}

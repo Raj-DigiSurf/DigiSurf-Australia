@@ -4,13 +4,12 @@ import { SocialProof } from '@/components/sections/SocialProof'
 import { Services } from '@/components/sections/Services'
 import { Industries } from '@/components/sections/Industries'
 import { HowItWorks } from '@/components/sections/HowItWorks'
+import { Portfolio } from '@/components/sections/Portfolio'
 import { ROICalculator } from '@/components/sections/ROICalculator'
-import { CaseStudies } from '@/components/sections/CaseStudies'
-import { Testimonials } from '@/components/sections/Testimonials'
 import { Pricing } from '@/components/sections/Pricing'
 import { FAQ } from '@/components/sections/FAQ'
 import { FinalCTA } from '@/components/sections/FinalCTA'
-import { ArrowRight, Star, Phone } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -30,30 +29,41 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
 
-          {/* Google rating badge */}
-          <div className="inline-flex items-center gap-2.5 glass rounded-full px-4 py-2 mb-8">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-[#FFB800] text-[#FFB800]" />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-white">4.9 on Google</span>
-            <span className="text-xs text-[#7A8FA6]">· 47 reviews</span>
-          </div>
-
           {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
             Your Business.<br />
             <span className="text-gradient">On Autopilot.</span>
           </h1>
 
           {/* Sub headline */}
-          <p className="max-w-2xl mx-auto text-xl text-[#7A8FA6] leading-relaxed mb-4">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-[#7A8FA6] leading-relaxed mb-4">
             DigiSurf builds AI systems that answer your phones, reply to leads, post your content,
             and run your admin — so you can focus on growth.
           </p>
-          <p className="text-sm font-medium text-[#00D4FF] mb-10">
-            🇦🇺 Sydney-based · Australian servers · 53+ businesses automated
+          <p className="text-sm font-medium text-[#00D4FF] mb-10 flex items-center justify-center gap-2 flex-wrap">
+            {/* Australian flag — simplified representational version */}
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{borderRadius:'2px',flexShrink:0}}>
+              <rect width="22" height="14" fill="#00008B"/>
+              {/* White cross (simplified Union Jack) */}
+              <rect x="0" y="6" width="11" height="2" fill="white"/>
+              <rect x="4.5" y="0" width="2" height="7" fill="white"/>
+              {/* Red cross overlay */}
+              <rect x="0" y="6.5" width="11" height="1" fill="#CC0000"/>
+              <rect x="5" y="0" width="1" height="7" fill="#CC0000"/>
+              {/* Diagonal white */}
+              <line x1="0" y1="0" x2="11" y2="7" stroke="white" strokeWidth="2"/>
+              <line x1="11" y1="0" x2="0" y2="7" stroke="white" strokeWidth="2"/>
+              {/* Diagonal red */}
+              <line x1="0" y1="0" x2="11" y2="7" stroke="#CC0000" strokeWidth="1"/>
+              <line x1="11" y1="0" x2="0" y2="7" stroke="#CC0000" strokeWidth="1"/>
+              {/* Southern Cross — 5 simple dots */}
+              <circle cx="16" cy="4" r="1" fill="white"/>
+              <circle cx="19" cy="6" r="1" fill="white"/>
+              <circle cx="17" cy="9" r="1" fill="white"/>
+              <circle cx="14" cy="8" r="1" fill="white"/>
+              <circle cx="20" cy="3" r="0.7" fill="white"/>
+            </svg>
+            <span>Australian registered business · Australian servers · Built for Australian businesses</span>
           </p>
 
           {/* CTAs */}
@@ -61,14 +71,14 @@ export default function Home() {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="btn-primary inline-flex items-center gap-2 text-base px-8 py-4"
+              className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4"
             >
               Book Free Strategy Call
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="tel:+61498541273"
-              className="btn-ghost inline-flex items-center gap-2 text-base px-8 py-4"
+              className="btn-ghost inline-flex items-center gap-2 text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4"
             >
               <Phone className="w-4 h-4" />
               +61 498 541 273
@@ -93,9 +103,8 @@ export default function Home() {
       <Services />
       <Industries />
       <HowItWorks />
+      <Portfolio />
       <ROICalculator />
-      <CaseStudies />
-      <Testimonials />
       <Pricing />
       <FAQ />
       <FinalCTA />

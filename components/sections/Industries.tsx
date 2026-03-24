@@ -113,7 +113,7 @@ export function Industries() {
             <button
               key={ind.id}
               onClick={() => setActive(ind.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 border ${
                 active === ind.id
                   ? 'bg-gradient-to-r from-[#00D4FF]/10 to-[#3B7BFF]/10 border-[rgba(0,212,255,0.3)] text-white'
                   : 'border-white/[0.07] text-[#7A8FA6] hover:text-white hover:border-white/[0.15] bg-transparent'
@@ -126,7 +126,7 @@ export function Industries() {
         </div>
 
         {/* Content Panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Left */}
           <div>
             <div

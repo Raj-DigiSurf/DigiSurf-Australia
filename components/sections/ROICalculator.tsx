@@ -63,7 +63,7 @@ export function ROICalculator() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
 
           {/* Inputs */}
           <div className="glass-card rounded-2xl p-8">

@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { ChatWidget } from "@/components/ui/ChatWidget";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,11 +27,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "DigiSurf Australia — AI Automation for Australian Businesses",
   description:
-    "Sydney-based AI automation agency. We build custom AI solutions for healthcare, fitness, retail, and content creators across Australia.",
+    "Australian AI automation agency. We build custom AI solutions for healthcare, fitness, retail, and content creators across Australia.",
   keywords: [
     "AI automation Australia",
-    "AI chatbot Sydney",
-    "business automation Sydney",
+    "AI chatbot Australia",
+    "business automation Australia",
     "AI agency Australia",
   ],
   openGraph: {
@@ -55,6 +56,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>

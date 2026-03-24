@@ -91,6 +91,122 @@ body {
 .light ::-webkit-scrollbar-thumb { background: rgba(13,107,202,0.3); }
 .light ::selection { background: rgba(13,107,202,0.15); color: #0a1f6e; }
 
+/* ── Light Mode: Section Backgrounds ─────────── */
+.light #who-we-help,
+.light #services,
+.light #how-it-works,
+.light #case-studies,
+.light #pricing,
+.light #contact {
+  background-color: #F0F5FF !important;
+}
+
+.light #industries,
+.light #portfolio,
+.light #roi-calculator,
+.light #testimonials,
+.light #faq {
+  background-color: #E8EFFA !important;
+}
+
+/* ── Light Mode: Footer ───────────────────────── */
+.light footer {
+  background-color: #E2EAF8 !important;
+  border-top-color: rgba(13,107,202,0.12) !important;
+}
+
+.light footer .border-t {
+  border-top-color: rgba(13,107,202,0.12) !important;
+}
+
+/* ── Light Mode: White & near-white text ─────── */
+.light section .text-white,
+.light footer .text-white {
+  color: #0a1f6e !important;
+}
+
+/* FAQ uses text-[#F0F6FF] for near-white text */
+.light section [class*="text-[#F0F6FF]"] {
+  color: #0a1f6e !important;
+}
+
+/* ── Light Mode: White borders → blue-tinted ─── */
+.light section [class*="border-white"],
+.light footer [class*="border-white"] {
+  border-color: rgba(13,107,202,0.12) !important;
+}
+
+/* SocialProof section border-y (no id) */
+.light section:not([id]) {
+  border-top-color: rgba(13,107,202,0.1) !important;
+  border-bottom-color: rgba(13,107,202,0.1) !important;
+}
+
+/* SocialProof dark gradient overlay */
+.light section:not([id]) .absolute.inset-0 {
+  background: linear-gradient(to right, #EBF2FF, #F0F5FF, #EBF2FF) !important;
+}
+
+/* SocialProof stat dividers */
+.light section:not([id]) [class*="divide-white"] > * {
+  border-color: rgba(13,107,202,0.1) !important;
+}
+
+/* SocialProof industry pill buttons */
+.light section:not([id]) button {
+  border-color: rgba(13,107,202,0.12) !important;
+  color: #1a2e50 !important;
+}
+
+/* ── Light Mode: btn-ghost ────────────────────── */
+.light .btn-ghost {
+  background: rgba(13,107,202,0.06) !important;
+  color: #1a2e50 !important;
+  border-color: rgba(13,107,202,0.18) !important;
+}
+
+.light .btn-ghost:hover {
+  border-color: rgba(13,107,202,0.4) !important;
+  background: rgba(13,107,202,0.1) !important;
+}
+
+/* ── Light Mode: ROI Calculator inputs ────────── */
+.light #roi-calculator input,
+.light #roi-calculator select {
+  background: #F8FBFF !important;
+  border-color: rgba(13,107,202,0.2) !important;
+  color: #0a1f6e !important;
+}
+
+/* ── Light Mode: Hero bottom fade ────────────── */
+.light .bg-ds-hero .absolute.bottom-0 {
+  background-image: linear-gradient(to top, #F0F5FF, transparent) !important;
+}
+
+/* ── Light Mode: Pricing popular card ────────── */
+.light #pricing [class*="from-[#0D1A3A]"] {
+  background: linear-gradient(to bottom, rgba(13,107,202,0.1), rgba(13,107,202,0.04)) !important;
+  border-color: #0d6bca !important;
+  box-shadow: 0 0 40px rgba(13,107,202,0.12) !important;
+}
+
+.light #pricing div.h-px {
+  background-color: rgba(13,107,202,0.15) !important;
+}
+
+/* ── Light Mode: Muted text contrast fix ─────── */
+/* #7A8FA6 is only 3:1 contrast on light bg — darken it */
+.light section [class*="text-[#7A8FA6]"],
+.light footer [class*="text-[#7A8FA6]"] {
+  color: #3d5470 !important;
+}
+
+/* #4A6080 passes at 5.6:1 — slightly darken for comfort */
+.light section [class*="text-[#4A6080]"],
+.light footer [class*="text-[#4A6080]"] {
+  color: #354d65 !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), system-ui, sans-serif;
 }

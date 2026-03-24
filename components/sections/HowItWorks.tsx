@@ -32,13 +32,13 @@ const steps = [
 const trustSignals = [
   { icon: Shield, label: 'No Lock-in Contracts' },
   { icon: Clock, label: 'Live in 1–2 Weeks' },
-  { icon: MapPin, label: 'Sydney-Based Team' },
+  { icon: MapPin, label: 'Australian Business' },
   { icon: TrendingUp, label: '30-Day ROI Guarantee' },
 ]
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-[#050B18] relative overflow-hidden">
+    <section id="how-it-works" className="py-16 lg:py-24 bg-[#050B18] relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-40 bg-gradient-to-b from-transparent via-[rgba(0,212,255,0.3)] to-transparent" />
@@ -100,7 +100,7 @@ export function HowItWorks() {
               <div className="w-9 h-9 rounded-lg bg-[rgba(0,212,255,0.1)] flex items-center justify-center shrink-0">
                 <item.icon className="w-4 h-4 text-[#00D4FF]" />
               </div>
-              <span className="text-sm font-medium text-white">{item.label}</span>
+              <span className="text-xs sm:text-sm font-medium text-white leading-tight">{item.label}</span>
             </div>
           ))}
         </div>

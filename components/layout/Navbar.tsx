@@ -9,7 +9,9 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle'
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Industries', href: '#industries' },
-  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Process', href: '#how-it-works' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'ROI', href: '#roi-calculator' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -17,8 +19,12 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
-  const isLight = theme === 'light'
+
+  useEffect(() => { setMounted(true) }, [])
+
+  const isLight = mounted && theme === 'light'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -49,7 +55,7 @@ export function Navbar() {
             {/* Logo */}
             <a href="/" className="flex items-center group hover:opacity-90 transition-opacity duration-200">
               <div className="group-hover:scale-[1.03] transition-transform duration-300">
-                <Logo variant={isLight ? 'light' : 'dark'} width={166} />
+                <Logo variant={isLight ? 'light' : 'dark'} width={210} />
               </div>
             </a>
 
@@ -59,7 +65,7 @@ export function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => scrollTo(link.href)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
                 >
                   {link.label}
                 </button>
@@ -86,7 +92,7 @@ export function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden p-2 rounded-lg text-[#7A8FA6] hover:text-white hover:bg-white/[0.05] transition-all duration-200"
+              className={`lg:hidden p-2 rounded-lg transition-all duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
               aria-label="Toggle menu"
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -102,21 +108,26 @@ export function Navbar() {
         }`}
       >
         <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
-        <div className={`absolute top-0 right-0 h-full w-72 bg-[#0D1526]/95 backdrop-blur-xl border-l border-white/[0.08] transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`absolute top-0 right-0 h-full w-72 backdrop-blur-xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'} ${isLight ? 'bg-[rgba(240,245,255,0.97)] border-l border-[rgba(13,107,202,0.15)]' : 'bg-[#0D1526]/95 border-l border-white/[0.08]'}`}>
           <div className="flex flex-col h-full pt-20 px-6 pb-10">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => scrollTo(link.href)}
-                  className="text-left px-4 py-3.5 text-base font-medium text-[#7A8FA6] hover:text-white hover:bg-white/[0.05] rounded-xl transition-all duration-200"
+                  className={`text-left px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
                 >
                   {link.label}
                 </button>
               ))}
             </nav>
-            <div className="mt-auto flex flex-col gap-3">
-              <p className="text-xs text-[#4A6080] text-center">info@digisurfaustralia.com.au</p>
+            <div className="mt-auto flex flex-col gap-4">
+              {/* Theme toggle row */}
+              <div className={`flex items-center justify-between px-4 py-3 rounded-xl ${isLight ? 'bg-[#0d6bca]/[0.06]' : 'bg-white/[0.03]'}`}>
+                <span className={`text-sm font-medium ${isLight ? 'text-[#1a2e50]' : 'text-[#7A8FA6]'}`}>Theme</span>
+                <ThemeToggle />
+              </div>
+              <p className={`text-xs text-center ${isLight ? 'text-[#4a6080]' : 'text-[#4A6080]'}`}>info@digisurfaustralia.com.au</p>
               <button
                 onClick={() => scrollTo('#contact')}
                 className="btn-primary text-center text-sm"

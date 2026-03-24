@@ -76,9 +76,9 @@ export function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === idx ? null : idx)}
-                className="w-full flex items-center justify-between gap-4 p-6 text-left"
+                className="w-full flex items-center justify-between gap-3 p-4 sm:p-6 text-left"
               >
-                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open === idx ? 'text-white' : 'text-[#F0F6FF]'}`}>
+                <span className={`text-sm sm:text-base font-semibold leading-snug transition-colors duration-200 ${open === idx ? 'text-white' : 'text-[#F0F6FF]'}`}>
                   {faq.q}
                 </span>
                 <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
@@ -91,7 +91,7 @@ export function FAQ() {
               </button>
 
               <div className={`transition-all duration-300 overflow-hidden ${open === idx ? 'max-h-96' : 'max-h-0'}`}>
-                <p className="px-6 pb-6 text-sm text-[#7A8FA6] leading-relaxed">
+                <p className="px-4 pb-4 sm:px-6 sm:pb-6 text-sm text-[#7A8FA6] leading-relaxed">
                   {faq.a}
                 </p>
               </div>
@@ -102,7 +102,7 @@ export function FAQ() {
         {/* Still have questions */}
         <div className="mt-12 text-center glass rounded-2xl p-8">
           <p className="text-white font-semibold mb-2">Still have a question?</p>
-          <p className="text-sm text-[#7A8FA6] mb-5">Our Sydney team responds within a few hours — usually faster.</p>
+          <p className="text-sm text-[#7A8FA6] mb-5">We respond within a few hours — usually faster.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="mailto:info@digisurfaustralia.com.au" className="btn-primary text-sm px-6 py-3">
               Email Us

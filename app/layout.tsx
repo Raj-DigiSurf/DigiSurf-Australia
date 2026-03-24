@@ -25,22 +25,45 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "DigiSurf Australia — AI Automation for Australian Businesses",
+  metadataBase: new URL('https://www.digisurfaustralia.com.au'),
+  title: {
+    default: 'DigiSurf Australia — AI Automation for Australian Businesses',
+    template: '%s | DigiSurf Australia',
+  },
   description:
-    "Australian AI automation agency. We build custom AI solutions for healthcare, fitness, retail, and content creators across Australia.",
+    'Australian AI automation agency. We build custom AI systems for small businesses — AI receptionists, chatbots, voice agents, social media AI, and more. Australian servers, no lock-in contracts.',
   keywords: [
-    "AI automation Australia",
-    "AI chatbot Australia",
-    "business automation Australia",
-    "AI agency Australia",
+    'AI automation Australia',
+    'AI receptionist Australia',
+    'AI chatbot Australia',
+    'business automation Australia',
+    'AI agency Australia',
+    'AI voice agent Australia',
+    'small business AI Australia',
+    'DigiSurf Australia',
   ],
+  authors: [{ name: 'DigiSurf Australia', url: 'https://www.digisurfaustralia.com.au' }],
+  creator: 'DigiSurf Australia',
   openGraph: {
-    title: "DigiSurf Australia — AI Automation",
-    description: "Custom AI automation for Australian businesses.",
-    url: "https://digisurfaustralia.com.au",
-    siteName: "DigiSurf Australia",
-    locale: "en_AU",
-    type: "website",
+    title: 'DigiSurf Australia — AI Automation for Australian Businesses',
+    description: 'AI systems that answer your phones, reply to leads, post your content, and run your admin — 24/7. Built for Australian businesses.',
+    url: 'https://www.digisurfaustralia.com.au',
+    siteName: 'DigiSurf Australia',
+    locale: 'en_AU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DigiSurf Australia — AI Automation for Australian Businesses',
+    description: 'AI systems that answer your phones, reply to leads, post your content, and run your admin — 24/7.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: 'https://www.digisurfaustralia.com.au',
   },
 };
 

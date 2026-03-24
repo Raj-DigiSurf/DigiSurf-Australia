@@ -18,9 +18,8 @@ const company = [
 ]
 
 const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/digisurfaustralia', short: 'in' },
-  { label: 'Instagram', href: 'https://instagram.com/digisurfaustralia', short: 'ig' },
-  { label: 'Facebook', href: 'https://facebook.com/digisurfaustralia', short: 'fb' },
+  { label: 'Instagram', href: 'https://instagram.com/digisurf.au', short: 'ig' },
+  { label: 'Facebook', href: 'https://facebook.com/DigiSurfAustralia', short: 'fb' },
 ]
 
 export function Footer() {
@@ -45,13 +44,13 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="flex flex-col gap-3 text-sm text-[#7A8FA6]">
-              <a href="mailto:hello@digisurfaustralia.com.au" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+              <a href="mailto:info@digisurfaustralia.com.au" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
                 <Mail size={14} className="text-[#00D4FF] shrink-0" />
-                hello@digisurfaustralia.com.au
+                info@digisurfaustralia.com.au
               </a>
-              <a href="tel:+61400000000" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+              <a href="tel:+61498541273" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
                 <Phone size={14} className="text-[#00D4FF] shrink-0" />
-                +61 400 000 000
+                +61 498 541 273
               </a>
               <span className="flex items-start gap-2">
                 <MapPin size={14} className="text-[#00D4FF] shrink-0 mt-0.5" />
@@ -137,7 +136,7 @@ export function Footer() {
             © {new Date().getFullYear()} DigiSurf Australia Pty Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-[#7A8FA6]">
-            <span>ABN: XX XXX XXX XXX</span>
+            <span>ABN: 28 448 210 292</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>

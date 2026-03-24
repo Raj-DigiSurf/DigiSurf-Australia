@@ -28,13 +28,13 @@ export function FinalCTA() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
-              href="mailto:hello@digisurfaustralia.com.au"
+              href="mailto:info@digisurfaustralia.com.au"
               className="inline-flex items-center gap-2 bg-ds-accent text-[#050B18] font-semibold px-8 py-4 rounded-lg hover:opacity-90 hover:-translate-y-px transition-all duration-200 text-base"
             >
               Book a Free Strategy Call <ArrowRight size={18} />
             </a>
             <a
-              href="tel:+61400000000"
+              href="tel:+61498541273"
               className="inline-flex items-center gap-2 border border-white/20 text-[#F0F6FF] font-medium px-8 py-4 rounded-lg hover:border-[#00D4FF] hover:bg-[rgba(0,212,255,0.05)] transition-all duration-200 text-base"
             >
               <Phone size={16} /> Call Us Directly

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -48,12 +49,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`}>
+    <html lang="en-AU" className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <body>
+        <ThemeProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
-        </body>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

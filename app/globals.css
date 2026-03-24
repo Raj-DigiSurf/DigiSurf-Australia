@@ -30,6 +30,11 @@
 
 html { scroll-behavior: smooth; }
 
+/* Theme transition */
+html, body, * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   background-color: #050B18;
   color: #F0F6FF;
@@ -38,6 +43,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+/* ── Light Mode ───────────────────────────── */
+.light body {
+  background-color: #F0F5FF;
+  color: #0a1f6e;
+}
+
+.light .bg-ds-hero {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(13,107,202,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 50%, rgba(0,160,200,0.08) 0%, transparent 50%),
+              #F0F5FF !important;
+}
+
+.light .bg-grid {
+  background-image:
+    linear-gradient(rgba(10,31,110,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,31,110,0.04) 1px, transparent 1px) !important;
+}
+
+.light .glass-card {
+  background: rgba(255,255,255,0.85) !important;
+  border: 1px solid rgba(13,107,202,0.12) !important;
+  color: #0a1f6e;
+}
+
+.light .glass-card:hover {
+  border-color: rgba(13,107,202,0.35) !important;
+  box-shadow: 0 20px 40px rgba(13,107,202,0.12), 0 0 30px rgba(0,160,200,0.06) !important;
+}
+
+.light .glass {
+  background: rgba(255,255,255,0.75) !important;
+  border: 1px solid rgba(13,107,202,0.12) !important;
+}
+
+.light .glass-cyan {
+  background: rgba(0,160,200,0.06) !important;
+  border: 1px solid rgba(0,160,200,0.2) !important;
+}
+
+.light .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(13,107,202,0.2), rgba(0,160,200,0.2), transparent) !important;
+}
+
+.light ::-webkit-scrollbar-track { background: #F0F5FF; }
+.light ::-webkit-scrollbar-thumb { background: rgba(13,107,202,0.3); }
+.light ::selection { background: rgba(13,107,202,0.15); color: #0a1f6e; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), system-ui, sans-serif;

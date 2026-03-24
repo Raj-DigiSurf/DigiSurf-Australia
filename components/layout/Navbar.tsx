@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { LogoFull, LogoMark } from '@/components/ui/Logo'
+import { useTheme } from 'next-themes'
+import { Logo, LogoMark } from '@/components/ui/Logo'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -15,6 +17,8 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -33,8 +37,10 @@ export function Navbar() {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[rgba(5,11,24,0.88)] backdrop-blur-xl border-b border-white/[0.06] shadow-xl shadow-black/30'
-            : 'bg-transparent'
+            ? isLight
+            ? 'bg-[rgba(240,245,255,0.92)] backdrop-blur-xl border-b border-[#0d6bca]/10 shadow-lg shadow-[#0d6bca]/5'
+            : 'bg-[rgba(5,11,24,0.88)] backdrop-blur-xl border-b border-white/[0.06] shadow-xl shadow-black/30'
+          : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +49,7 @@ export function Navbar() {
             {/* Logo */}
             <a href="/" className="flex items-center group hover:opacity-90 transition-opacity duration-200">
               <div className="group-hover:scale-[1.03] transition-transform duration-300">
-                <LogoFull height={44} />
+                <Logo variant={isLight ? 'light' : 'dark'} width={166} />
               </div>
             </a>
 
@@ -53,7 +59,7 @@ export function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => scrollTo(link.href)}
-                  className="px-4 py-2 text-sm font-medium text-[#7A8FA6] hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200 cursor-pointer"
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
                 >
                   {link.label}
                 </button>
@@ -62,9 +68,10 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
               <a
                 href="tel:+61498541273"
-                className="text-sm font-medium text-[#7A8FA6] hover:text-[#00D4FF] transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca]' : 'text-[#7A8FA6] hover:text-[#00D4FF]'}`}
               >
                 +61 498 541 273
               </a>

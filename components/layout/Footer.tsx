@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
-import { LogoFull } from '@/components/ui/Logo'
+import { useTheme } from 'next-themes'
+import { Logo } from '@/components/ui/Logo'
 
 const services = [
   { label: 'AI Chatbots', href: '#services' },
@@ -24,6 +27,8 @@ const socials = [
 ]
 
 export function Footer() {
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
   return (
     <footer className="bg-[#050B18] border-t border-white/[0.06]">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -32,7 +37,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center mb-4 hover:opacity-90 transition-opacity">
-              <LogoFull height={40} />
+              <Logo variant={isLight ? 'light' : 'dark'} width={152} />
             </Link>
             <p className="text-sm text-[#7A8FA6] leading-relaxed mb-6">
               AI automation for Australian businesses. We save you time, cut costs, and help you scale faster.

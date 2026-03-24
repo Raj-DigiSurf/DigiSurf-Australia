@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="bg-ds-hero min-h-screen flex items-center justify-center">
+    <section className="bg-ds-hero min-h-screen flex items-center justify-center pt-16">
       <div className="text-center px-6 max-w-4xl mx-auto">
         {/* Badge */}
         <span className="inline-block rounded-full border border-[rgba(0,212,255,0.3)] bg-[rgba(0,212,255,0.1)] px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[#00D4FF] mb-8">
@@ -29,6 +29,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 @theme inline {
   --color-ds-dark: #050B18;
   --color-ds-card: #0D1526;
@@ -17,12 +15,12 @@
 body {
   background-color: #050B18;
   color: #F0F6FF;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 .text-gradient {

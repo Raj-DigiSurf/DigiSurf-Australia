@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
     const trimmed = apiMessages.slice(firstUserIdx)
 
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-haiku-4-5-20251001' as string,
       max_tokens: 400,
       system: SYSTEM_PROMPT,
       messages: trimmed,
@@ -77,8 +77,14 @@ export async function POST(req: NextRequest) {
 
     const text = response.content[0].type === 'text' ? response.content[0].text : ''
     return NextResponse.json({ message: text })
-  } catch (err) {
-    console.error('Chat API error:', err)
-    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('Chat API error:', message)
+    // Return actual error in dev so we can diagnose; generic message in prod
+    const isDev = process.env.NODE_ENV === 'development'
+    return NextResponse.json(
+      { error: isDev ? `API error: ${message}` : 'Something went wrong. Please try again.' },
+      { status: 500 }
+    )
   }
 }

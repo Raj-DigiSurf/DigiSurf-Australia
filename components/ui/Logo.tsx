@@ -1,121 +1,180 @@
-import React from 'react'
+'use client'
 
 interface LogoProps {
-  size?: number
-  showWordmark?: boolean
+  variant?: 'dark' | 'light'
+  width?: number
   className?: string
 }
 
-export function LogoMark({ size = 40 }: { size?: number }) {
+export function Logo({ variant = 'dark', width = 200, className = '' }: LogoProps) {
+  const isDark = variant === 'dark'
+
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 40 40"
-      fill="none"
+      viewBox="0 0 360 95"
+      width={width}
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="DigiSurf logomark"
+      className={className}
+      aria-label="DigiSurf Australia"
     >
       <defs>
-        {/* Background gradient */}
-        <linearGradient id="bg-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#0D1A3A" />
-          <stop offset="100%" stopColor="#050B18" />
-        </linearGradient>
-        {/* Wave gradient */}
-        <linearGradient id="wave-grad" x1="4" y1="20" x2="36" y2="20" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#00D4FF" />
-          <stop offset="60%" stopColor="#3B7BFF" />
-          <stop offset="100%" stopColor="#7B5FFF" />
-        </linearGradient>
-        {/* Border gradient */}
-        <linearGradient id="border-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#00D4FF" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#3B7BFF" stopOpacity="0.3" />
-        </linearGradient>
-        {/* Glow filter */}
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="1.5" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
+        {isDark ? (
+          <>
+            <linearGradient id="lg1" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0a1f6e" />
+              <stop offset="40%" stopColor="#0d6bca" />
+              <stop offset="100%" stopColor="#00d4ff" />
+            </linearGradient>
+            <linearGradient id="lg2" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0d3a9e" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#38c0f8" stopOpacity="0.35" />
+            </linearGradient>
+            <linearGradient id="lg3" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#1460c0" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#90e4ff" stopOpacity="0.15" />
+            </linearGradient>
+            <filter id="lgl">
+              <feGaussianBlur stdDeviation="2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </>
+        ) : (
+          <>
+            <linearGradient id="lg1" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0a1f6e" />
+              <stop offset="40%" stopColor="#0d6bca" />
+              <stop offset="100%" stopColor="#009ec0" />
+            </linearGradient>
+            <linearGradient id="lg2" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0d3a9e" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#38c0f8" stopOpacity="0.32" />
+            </linearGradient>
+            <linearGradient id="lg3" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#1460c0" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="#90e4ff" stopOpacity="0.12" />
+            </linearGradient>
+            <filter id="lgl">
+              <feGaussianBlur stdDeviation="2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </>
+        )}
       </defs>
 
-      {/* Background rounded square */}
-      <rect width="40" height="40" rx="10" fill="url(#bg-grad)" />
-
-      {/* Border */}
-      <rect width="40" height="40" rx="10" fill="none" stroke="url(#border-grad)" strokeWidth="1" />
-
-      {/* Wave path — a stylised surf/data wave */}
+      {/* Wave strokes — layered depth */}
       <path
-        d="M5 24 C7 24 9 14 12 14 C15 14 15 26 18 26 C21 26 21 12 24 12 C27 12 28 22 30 20 C32 18 33 16 35 16"
-        stroke="url(#wave-grad)"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20"
         fill="none"
-        filter="url(#glow)"
+        stroke="url(#lg3)"
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+      <path
+        d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12"
+        fill="none"
+        stroke="url(#lg2)"
+        strokeWidth="9"
+        strokeLinecap="round"
+      />
+      <path
+        d="M10,38 C16,30 26,16 40,10 C50,4 62,8 80,4"
+        fill="none"
+        stroke="url(#lg1)"
+        strokeWidth="8"
+        strokeLinecap="round"
+        filter="url(#lgl)"
       />
 
-      {/* Node dots at wave peaks/troughs */}
-      <circle cx="12" cy="14" r="2" fill="#00D4FF" opacity="0.9" />
-      <circle cx="18" cy="26" r="2" fill="#3B7BFF" opacity="0.9" />
-      <circle cx="24" cy="12" r="2" fill="#3B7BFF" opacity="0.9" />
-      <circle cx="30" cy="20" r="2" fill="#7B5FFF" opacity="0.9" />
+      {/* Glowing peak dot */}
+      <circle
+        cx="40"
+        cy="10"
+        r="5"
+        fill={isDark ? '#00d4ff' : '#009ec0'}
+        filter="url(#lgl)"
+      />
+      <circle cx="40" cy="10" r="2" fill={isDark ? '#ffffff' : '#0a1f6e'} />
 
-      {/* Subtle inner glow at top */}
-      <rect width="40" height="40" rx="10" fill="url(#bg-grad)" opacity="0" />
+      {/* DIGISURF wordmark */}
+      <text
+        x="182"
+        y="42"
+        textAnchor="middle"
+        fontFamily="var(--font-logo), 'Montserrat', sans-serif"
+        fontWeight="900"
+        fontSize="28"
+        fill={isDark ? '#ffffff' : '#0a1f6e'}
+        letterSpacing="1"
+      >
+        DIGISURF
+      </text>
+
+      {/* AUSTRALIA subtext */}
+      <text
+        x="182"
+        y="60"
+        textAnchor="middle"
+        fontFamily="var(--font-logo), 'Montserrat', sans-serif"
+        fontWeight="200"
+        fontSize="10"
+        fill={isDark ? '#00d4ff' : '#0870b8'}
+        letterSpacing="7"
+      >
+        AUSTRALIA
+      </text>
+    </svg>
+  )
+}
+
+// Compact icon-only mark for small spaces (wave + dot only, no text)
+export function LogoMark({ size = 40, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 90 75"
+      width={size}
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="DigiSurf"
+    >
+      <defs>
+        <linearGradient id="mk1" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#0a1f6e" />
+          <stop offset="40%" stopColor="#0d6bca" />
+          <stop offset="100%" stopColor="#00d4ff" />
+        </linearGradient>
+        <linearGradient id="mk2" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#0d3a9e" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#38c0f8" stopOpacity="0.35" />
+        </linearGradient>
+        <linearGradient id="mk3" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#1460c0" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#90e4ff" stopOpacity="0.15" />
+        </linearGradient>
+        <filter id="mkgl">
+          <feGaussianBlur stdDeviation="2" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <path d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20" fill="none" stroke="url(#mk3)" strokeWidth="10" strokeLinecap="round" />
+      <path d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12" fill="none" stroke="url(#mk2)" strokeWidth="9" strokeLinecap="round" />
+      <path d="M10,38 C16,30 26,16 40,10 C50,4 62,8 80,4" fill="none" stroke="url(#mk1)" strokeWidth="8" strokeLinecap="round" filter="url(#mkgl)" />
+      <circle cx="40" cy="10" r="5" fill="#00d4ff" filter="url(#mkgl)" />
+      <circle cx="40" cy="10" r="2" fill="#ffffff" />
     </svg>
   )
 }
 
 export function LogoFull({ height = 32, className = '' }: { height?: number; className?: string }) {
-  return (
-    <div className={`flex items-center gap-2.5 ${className}`} aria-label="DigiSurf Australia">
-      <LogoMark size={height} />
-      <svg
-        height={height}
-        viewBox="0 0 120 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="text-grad" x1="60" y1="0" x2="120" y2="32" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#00D4FF" />
-            <stop offset="100%" stopColor="#3B7BFF" />
-          </linearGradient>
-        </defs>
-        {/* "Digi" — white */}
-        <text
-          x="0"
-          y="24"
-          fontFamily="'Space Grotesk', system-ui, sans-serif"
-          fontWeight="700"
-          fontSize="22"
-          fill="#F0F6FF"
-          letterSpacing="-0.5"
-        >
-          Digi
-        </text>
-        {/* "Surf" — gradient */}
-        <text
-          x="52"
-          y="24"
-          fontFamily="'Space Grotesk', system-ui, sans-serif"
-          fontWeight="700"
-          fontSize="22"
-          fill="url(#text-grad)"
-          letterSpacing="-0.5"
-        >
-          Surf
-        </text>
-      </svg>
-    </div>
-  )
-}
-
-export function Logo({ size = 40, showWordmark = true, className = '' }: LogoProps) {
-  if (!showWordmark) return <LogoMark size={size} />
-  return <LogoFull height={size} className={className} />
+  const width = Math.round(height * (360 / 95))
+  return <Logo variant="dark" width={width} className={className} />
 }

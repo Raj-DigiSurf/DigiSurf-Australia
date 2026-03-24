@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiSurf — Final</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060b16;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    padding: 80px 40px;
+  }
+  .v { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .lbl { font-size: 8px; letter-spacing: 3px; color: #1a2e50; text-transform: uppercase; }
+  .light { background: #f0f4fc; border-radius: 20px; padding: 48px 56px; }
+  .row { display: flex; align-items: center; justify-content: center; gap: 70px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<!-- HERO DARK — both texts text-anchor="middle" at same x=182 -->
+<div class="v">
+<svg viewBox="0 0 360 95" width="680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a1f6e"/>
+      <stop offset="40%" stop-color="#0d6bca"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="hg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d3a9e" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#38c0f8" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="hg3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1460c0" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#90e4ff" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="hgl">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20" fill="none" stroke="url(#hg3)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12" fill="none" stroke="url(#hg2)" stroke-width="9"  stroke-linecap="round"/>
+  <path d="M10,38 C16,30 26,16 40,10 C50,4  62,8  80,4"  fill="none" stroke="url(#hg1)" stroke-width="8"  stroke-linecap="round" filter="url(#hgl)"/>
+  <circle cx="40" cy="10" r="5" fill="#00d4ff" filter="url(#hgl)"/>
+  <circle cx="40" cy="10" r="2" fill="#ffffff"/>
+  <text x="182" y="42" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="1">DIGISURF</text>
+  <text x="182" y="60" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="200" font-size="10" fill="#00d4ff" letter-spacing="7">AUSTRALIA</text>
+</svg>
+<p class="lbl">Dark</p>
+</div>
+<!-- LIGHT -->
+<div class="v">
+  <div class="light">
+    <svg viewBox="0 0 360 95" width="640" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lg1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a1f6e"/><stop offset="40%" stop-color="#0d6bca"/><stop offset="100%" stop-color="#009ec0"/></linearGradient>
+        <linearGradient id="lg2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0d3a9e" stop-opacity="0.5"/><stop offset="100%" stop-color="#38c0f8" stop-opacity="0.32"/></linearGradient>
+        <linearGradient id="lg3" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1460c0" stop-opacity="0.22"/><stop offset="100%" stop-color="#90e4ff" stop-opacity="0.12"/></linearGradient>
+        <filter id="lgl"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20" fill="none" stroke="url(#lg3)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12" fill="none" stroke="url(#lg2)" stroke-width="9"  stroke-linecap="round"/>
+      <path d="M10,38 C16,30 26,16 40,10 C50,4  62,8  80,4"  fill="none" stroke="url(#lg1)" stroke-width="8"  stroke-linecap="round" filter="url(#lgl)"/>
+      <circle cx="40" cy="10" r="5" fill="#009ec0" filter="url(#lgl)"/>
+      <circle cx="40" cy="10" r="2" fill="#0a1f6e"/>
+      <text x="182" y="42" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="900" font-size="28" fill="#0a1f6e" letter-spacing="1">DIGISURF</text>
+      <text x="182" y="60" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="200" font-size="10" fill="#0870b8" letter-spacing="7">AUSTRALIA</text>
+    </svg>
+  </div>
+  <p class="lbl">Light</p>
+</div>
+<!-- Medium + Small -->
+<div class="row">
+  <div class="v">
+    <svg viewBox="0 0 360 95" width="420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="mg1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a1f6e"/><stop offset="40%" stop-color="#0d6bca"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient>
+        <linearGradient id="mg2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0d3a9e" stop-opacity="0.55"/><stop offset="100%" stop-color="#38c0f8" stop-opacity="0.35"/></linearGradient>
+        <linearGradient id="mg3" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1460c0" stop-opacity="0.25"/><stop offset="100%" stop-color="#90e4ff" stop-opacity="0.15"/></linearGradient>
+        <filter id="mgl"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20" fill="none" stroke="url(#mg3)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12" fill="none" stroke="url(#mg2)" stroke-width="9"  stroke-linecap="round"/>
+      <path d="M10,38 C16,30 26,16 40,10 C50,4  62,8  80,4"  fill="none" stroke="url(#mg1)" stroke-width="8"  stroke-linecap="round" filter="url(#mgl)"/>
+      <circle cx="40" cy="10" r="5" fill="#00d4ff" filter="url(#mgl)"/>
+      <circle cx="40" cy="10" r="2" fill="#ffffff"/>
+      <text x="182" y="42" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="1">DIGISURF</text>
+      <text x="182" y="60" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="200" font-size="10" fill="#00d4ff" letter-spacing="7">AUSTRALIA</text>
+    </svg>
+    <p class="lbl">Medium</p>
+  </div>
+  <div class="v">
+    <svg viewBox="0 0 360 95" width="240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sg1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a1f6e"/><stop offset="40%" stop-color="#0d6bca"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient>
+        <linearGradient id="sg2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0d3a9e" stop-opacity="0.55"/><stop offset="100%" stop-color="#38c0f8" stop-opacity="0.35"/></linearGradient>
+        <linearGradient id="sg3" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1460c0" stop-opacity="0.25"/><stop offset="100%" stop-color="#90e4ff" stop-opacity="0.15"/></linearGradient>
+        <filter id="sgl"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M10,62 C20,54 30,36 44,28 C54,22 66,26 80,20" fill="none" stroke="url(#sg3)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,50 C18,42 28,26 42,20 C52,14 64,18 80,12" fill="none" stroke="url(#sg2)" stroke-width="9"  stroke-linecap="round"/>
+      <path d="M10,38 C16,30 26,16 40,10 C50,4  62,8  80,4"  fill="none" stroke="url(#sg1)" stroke-width="8"  stroke-linecap="round" filter="url(#sgl)"/>
+      <circle cx="40" cy="10" r="5" fill="#00d4ff" filter="url(#sgl)"/>
+      <circle cx="40" cy="10" r="2" fill="#ffffff"/>
+      <text x="182" y="42" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="1">DIGISURF</text>
+      <text x="182" y="60" text-anchor="middle" font-family="'Montserrat',sans-serif" font-weight="200" font-size="10" fill="#00d4ff" letter-spacing="7">AUSTRALIA</text>
+    </svg>
+    <p class="lbl">Small</p>
+  </div>
+</div>
+</body>
+</html>

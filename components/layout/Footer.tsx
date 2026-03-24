@@ -31,11 +31,8 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4 hover:opacity-90 transition-opacity">
-              <LogoFull height={28} />
-              <span className="rounded-full border border-[rgba(0,212,255,0.3)] bg-[rgba(0,212,255,0.1)] px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-[#00D4FF]">
-                AU
-              </span>
+            <Link href="/" className="inline-flex items-center mb-4 hover:opacity-90 transition-opacity">
+              <LogoFull height={40} />
             </Link>
             <p className="text-sm text-[#7A8FA6] leading-relaxed mb-6">
               AI automation for Australian businesses. We save you time, cut costs, and help you scale faster.

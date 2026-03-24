@@ -41,11 +41,10 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2 group hover:opacity-90 transition-opacity duration-200">
-              <div className="group-hover:scale-105 transition-transform duration-300">
-                <LogoFull height={30} />
+            <a href="/" className="flex items-center group hover:opacity-90 transition-opacity duration-200">
+              <div className="group-hover:scale-[1.03] transition-transform duration-300">
+                <LogoFull height={44} />
               </div>
-              <span className="hidden sm:inline-block badge badge-cyan text-[10px] py-0.5 px-2 ml-1">AU</span>
             </a>
 
             {/* Desktop Nav */}

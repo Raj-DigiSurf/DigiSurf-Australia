@@ -12,23 +12,29 @@ interface Message {
 const GREETING = "Hi! I'm DigiSurf's AI assistant.\n\nAsk me anything about our services, pricing, or how AI automation could work for your business."
 
 function renderContent(text: string) {
-  return text.split('\n').map((line, i) => {
-    // Convert **bold** and *italic*
+  const lines = text.split('\n')
+  return lines.map((line, i) => {
+    const isLast = i === lines.length - 1
+    // Strip leading bullet markers
+    const stripped = line.replace(/^[-•]\s+/, '')
+    const isBullet = stripped !== line
+
+    // Only match **bold** — skip single * to avoid eating bullet points
     const parts: React.ReactNode[] = []
-    const regex = /\*\*(.+?)\*\*|\*(.+?)\*/g
+    const regex = /\*\*(.+?)\*\*/g
     let last = 0
     let match
-    while ((match = regex.exec(line)) !== null) {
-      if (match.index > last) parts.push(line.slice(last, match.index))
-      if (match[1]) parts.push(<strong key={match.index}>{match[1]}</strong>)
-      else if (match[2]) parts.push(<em key={match.index}>{match[2]}</em>)
+    while ((match = regex.exec(stripped)) !== null) {
+      if (match.index > last) parts.push(stripped.slice(last, match.index))
+      parts.push(<strong key={match.index}>{match[1]}</strong>)
       last = match.index + match[0].length
     }
-    if (last < line.length) parts.push(line.slice(last))
+    if (last < stripped.length) parts.push(stripped.slice(last))
+
     return (
-      <span key={i}>
-        {parts.length ? parts : '\u00A0'}
-        {i < text.split('\n').length - 1 && <br />}
+      <span key={i} className={isBullet ? 'block pl-3 before:content-["•"] before:mr-2 before:text-[#00D4FF]' : 'block'}>
+        {parts}
+        {!isLast && !isBullet && <br />}
       </span>
     )
   })
@@ -170,7 +176,7 @@ export function ChatWidget() {
                         : 'bg-white/[0.07] text-[#ddeaf8] rounded-tl-sm border border-white/[0.06]'
                   }`}
                 >
-                  {renderContent(msg.content)}
+                  {msg.role === 'assistant' ? renderContent(msg.content) : msg.content}
                 </div>
               </div>
             ))}

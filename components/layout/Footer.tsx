@@ -37,7 +37,7 @@ const socials = [
   },
   {
     label: 'Facebook',
-    href: 'https://facebook.com/DigiSurfAustralia',
+    href: 'https://www.facebook.com/digisurf.au/',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -75,10 +75,15 @@ export function Footer() {
                 <Phone size={14} className="text-[#00D4FF] shrink-0" />
                 +61 498 541 273
               </a>
-              <span className="flex items-start gap-2">
+              <a
+                href="https://maps.google.com/?q=Bondi+Beach+Sydney+NSW+Australia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-[#00D4FF] transition-colors"
+              >
                 <MapPin size={14} className="text-[#00D4FF] shrink-0 mt-0.5" />
-                Australia
-              </span>
+                Bondi Beach, Sydney — Remote-First
+              </a>
             </div>
           </div>
 
@@ -162,6 +167,13 @@ export function Footer() {
             <span>ABN: 28 448 210 292</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <button
+              onClick={() => { localStorage.removeItem('cookie_consent'); window.location.reload() }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Manage Cookies
+            </button>
           </div>
         </div>
       </div>

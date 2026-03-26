@@ -1,6 +1,6 @@
 'use client'
 
-import { MessageSquare, Wrench, Zap, Shield, Clock, MapPin, TrendingUp } from 'lucide-react'
+import { MessageSquare, Wrench, Zap, Shield, Clock, Wifi, TrendingUp } from 'lucide-react'
 
 const steps = [
   {
@@ -32,7 +32,7 @@ const steps = [
 const trustSignals = [
   { icon: Shield, label: 'No Lock-in Contracts' },
   { icon: Clock, label: 'Live in 1–2 Weeks' },
-  { icon: MapPin, label: 'Australian Business' },
+  { icon: Wifi, label: '100% Remote Delivery' },
   { icon: TrendingUp, label: '30-Day ROI Guarantee' },
 ]
 
@@ -53,7 +53,7 @@ export function HowItWorks() {
             <span className="text-gradient">Live in Under 2 Weeks</span>
           </h2>
           <p className="max-w-xl mx-auto text-lg text-[#7A8FA6] leading-relaxed">
-            No tech knowledge needed. No lock-in. We handle everything from strategy to setup to ongoing support.
+            No tech knowledge needed. No office visits. We handle everything remotely — strategy, setup, and ongoing support — so you can focus on running your business.
           </p>
         </div>
 

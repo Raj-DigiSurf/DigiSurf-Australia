@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { ChatWidget } from "@/components/ui/ChatWidget";
+import { CookieBanner } from "@/components/ui/CookieBanner";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | DigiSurf Australia',
   },
   description:
-    'Australian AI automation agency. We build custom AI systems for small businesses — AI receptionists, chatbots, voice agents, social media AI, and more. Australian servers, no lock-in contracts.',
+    'Australian AI automation agency. We build custom AI systems for small businesses — AI receptionists, chatbots, voice agents, social media AI, and more. Remote-first delivery, no lock-in contracts.',
   keywords: [
     'AI automation Australia',
     'AI receptionist Australia',
@@ -80,6 +81,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <ChatWidget />
+          <CookieBanner />
         </ThemeProvider>
       </body>
     </html>

@@ -63,7 +63,7 @@ export default function Home() {
               <circle cx="14" cy="8" r="1" fill="white"/>
               <circle cx="20" cy="3" r="0.7" fill="white"/>
             </svg>
-            <span>Australian registered business · Australian servers · Built for Australian businesses</span>
+            <span>Australian registered business · Remote-first delivery · Built for Australian businesses</span>
           </p>
 
           {/* CTAs */}

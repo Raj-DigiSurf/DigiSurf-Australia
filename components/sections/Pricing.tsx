@@ -7,9 +7,11 @@ import { Check, X } from 'lucide-react'
 const plans = [
   {
     name: 'Starter',
-    price: '$397',
-    setup: '$497 one-time setup',
-    description: 'One high-impact AI automation to get you started. Perfect for small businesses ready to save time.',
+    betaPrice: '$297',
+    regularPrice: '$397',
+    setup: 'No setup fee during beta',
+    regularSetup: '$297 one-time setup (regular)',
+    description: 'One high-impact AI automation to get started. Perfect for small businesses ready to save time.',
     popular: false,
     features: [
       { text: '1 AI automation (chatbot, receptionist, or voice agent)', included: true },
@@ -20,15 +22,17 @@ const plans = [
       { text: 'CRM integration', included: false },
       { text: 'Multiple automations', included: false },
     ],
-    cta: 'Get Started',
+    cta: 'Claim Founding Rate',
     accentColor: '#00D4FF',
     glowColor: 'rgba(0,212,255,0.18)',
     ringColor: 'rgba(0,212,255,0.6)',
   },
   {
     name: 'Growth',
-    price: '$697',
-    setup: '$797 one-time setup',
+    betaPrice: '$597',
+    regularPrice: '$797',
+    setup: 'No setup fee during beta',
+    regularSetup: '$497 one-time setup (regular)',
     description: 'Multiple automations working together. The most popular choice for growing Australian businesses.',
     popular: true,
     features: [
@@ -40,21 +44,23 @@ const plans = [
       { text: '5 hrs/month support + strategy call', included: true },
       { text: 'Priority response time', included: true },
     ],
-    cta: 'Most Popular — Get Started',
+    cta: 'Most Popular — Claim Rate',
     accentColor: '#00D4FF',
     glowColor: 'rgba(0,212,255,0.22)',
     ringColor: 'rgba(0,212,255,0.8)',
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
-    setup: 'Setup quoted per scope',
-    description: 'Fully custom AI infrastructure for growing operations, multi-location businesses, and complex workflows.',
+    name: 'Scale',
+    betaPrice: '$997',
+    regularPrice: '$1,297',
+    setup: 'No setup fee during beta',
+    regularSetup: '$797 one-time setup (regular)',
+    description: 'Fully custom AI infrastructure for multi-service businesses and complex workflows.',
     popular: false,
     features: [
       { text: 'Unlimited AI automations', included: true },
       { text: 'Custom software integrations', included: true },
-      { text: 'Dedicated account manager', included: true },
+      { text: 'Dedicated account manager (Raj)', included: true },
       { text: 'Priority support', included: true },
       { text: 'Monthly strategy review', included: true },
       { text: 'Staff training included', included: true },
@@ -67,8 +73,18 @@ const plans = [
   },
 ]
 
+const comparison = [
+  { feature: 'Setup required', diy: 'You do it all', digisurf: 'We handle everything' },
+  { feature: 'Goes live', diy: 'Weeks/months', digisurf: '1–2 weeks' },
+  { feature: 'Support when it breaks', diy: 'YouTube tutorials', digisurf: 'Raj fixes it remotely' },
+  { feature: 'Customisation', diy: 'Templates only', digisurf: 'Built for your business' },
+  { feature: 'AI quality', diy: 'Generic responses', digisurf: 'Trained on your business' },
+  { feature: 'Your time cost', diy: '10–20 hrs/month', digisurf: '0 hrs — we manage it' },
+]
+
 export function Pricing() {
   const [selected, setSelected] = useState<string>('Growth')
+  const [showComparison, setShowComparison] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
@@ -98,16 +114,16 @@ export function Pricing() {
           <p className={`text-sm leading-relaxed text-center ${isLight ? 'text-[#1a2e50]' : 'text-[#F0F6FF]'}`}>
             <span className={`font-bold ${isLight ? 'text-[#0a1f6e]' : 'text-white'}`}>Compare the cost:</span> A part-time admin assistant costs{' '}
             <span className="text-gradient-cyan font-bold">$35,000–$52,000/year.</span> Our Growth plan costs just{' '}
-            <span className="text-gradient-cyan font-bold">$9,161/year all-in (first year)</span> — and works 24/7, never calls in sick, and scales with your business.
+            <span className="text-gradient-cyan font-bold">$7,164/year</span> during beta — works 24/7, never calls in sick, and scales with you.
           </p>
         </div>
 
-        {/* Launch Offer Banner */}
-        <div className="flex items-center justify-center gap-2 mb-8 rounded-2xl border border-[rgba(0,212,255,0.2)] bg-[rgba(0,212,255,0.05)] px-6 py-4 max-w-2xl mx-auto">
-          <span className="text-lg">🎉</span>
+        {/* Founding Offer Banner */}
+        <div className="flex items-center justify-center gap-2 mb-10 rounded-2xl border border-[rgba(0,212,255,0.2)] bg-[rgba(0,212,255,0.05)] px-6 py-4 max-w-2xl mx-auto">
+          <span className="text-lg">🚀</span>
           <div>
-            <p className={`text-sm font-bold ${isLight ? 'text-[#0a1f6e]' : 'text-white'}`}>Founding Client Offer — 20% off your first 3 months</p>
-            <p className="text-xs text-[#7A8FA6]">Limited to first 5 clients · Mention this offer when you book</p>
+            <p className={`text-sm font-bold ${isLight ? 'text-[#0a1f6e]' : 'text-white'}`}>Founding Beta — Setup Fee Waived</p>
+            <p className="text-xs text-[#7A8FA6]">First 3 clients only · Lock in your rate permanently · Regular pricing: $397–$1,297/mo + setup</p>
           </div>
         </div>
 
@@ -115,7 +131,6 @@ export function Pricing() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {plans.map((plan) => {
             const isSelected = selected === plan.name
-            // Growth steps back when another card is actively selected
             const popularDimmed = plan.popular && !isSelected && selected !== 'Growth'
 
             return (
@@ -134,7 +149,6 @@ export function Pricing() {
                   borderWidth: 2,
                   borderStyle: 'solid',
                 } : plan.popular && !popularDimmed ? {
-                  // Growth is the recommended plan and no other card selected — show its full styling
                   background: 'linear-gradient(to bottom, #0D1A3A, #0D1526)',
                   boxShadow: '0 0 50px rgba(0,212,255,0.15)',
                   borderColor: '#00D4FF',
@@ -142,7 +156,6 @@ export function Pricing() {
                   borderStyle: 'solid',
                 } : undefined}
               >
-                {/* Top badge — selected state wins */}
                 {isSelected && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                     <span
@@ -154,7 +167,6 @@ export function Pricing() {
                   </div>
                 )}
 
-                {/* Growth not selected, nothing else selected — show full badge */}
                 {plan.popular && !isSelected && !popularDimmed && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="bg-gradient-to-r from-[#00D4FF] to-[#3B7BFF] text-[#050B18] text-xs font-bold uppercase tracking-wider px-5 py-1.5 rounded-full whitespace-nowrap">
@@ -163,7 +175,6 @@ export function Pricing() {
                   </div>
                 )}
 
-                {/* Glow overlay when selected */}
                 {isSelected && (
                   <div
                     className="absolute inset-0 rounded-2xl pointer-events-none"
@@ -174,18 +185,24 @@ export function Pricing() {
                 <div className="relative mb-6">
                   <div className="flex items-center gap-2 mb-2">
                     <p className={`text-xs font-bold uppercase tracking-widest ${isLight ? 'text-[#3d5470]' : 'text-[#4A6080]'}`}>{plan.name}</p>
-                    {/* Muted inline tag when Growth steps back */}
                     {popularDimmed && (
                       <span className="text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[rgba(0,212,255,0.2)] text-[#4A6080]">
                         Recommended
                       </span>
                     )}
                   </div>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className={`text-4xl font-bold ${isLight ? 'text-[#0a1f6e]' : 'text-white'}`}>{plan.price}</span>
-                    {plan.price !== 'Custom' && <span className="text-sm text-[#7A8FA6]">/month</span>}
+
+                  {/* Beta price */}
+                  <div className="flex items-baseline gap-2 mb-0.5">
+                    <span className={`text-4xl font-bold ${isLight ? 'text-[#0a1f6e]' : 'text-white'}`}>{plan.betaPrice}</span>
+                    <span className="text-sm text-[#7A8FA6]">/month</span>
                   </div>
-                  <p className="text-xs text-[#4A6080] mb-4">{plan.setup}</p>
+                  {/* Regular price crossed out */}
+                  <p className="text-xs text-[#4A6080] mb-1">
+                    <span className="line-through">Regular: {plan.regularPrice}/mo</span>
+                    <span className="ml-2 text-[#00D4FF] font-semibold">Beta rate</span>
+                  </p>
+                  <p className="text-xs text-[#00D4FF] font-medium mb-4">{plan.setup}</p>
                   <p className={`text-sm leading-relaxed ${isLight ? 'text-[#3d5470]' : 'text-[#7A8FA6]'}`}>{plan.description}</p>
                 </div>
 
@@ -216,9 +233,47 @@ export function Pricing() {
           })}
         </div>
 
-        <p className={`text-center text-sm ${isLight ? 'text-[#3d5470]' : 'text-[#4A6080]'}`}>
+        <p className={`text-center text-sm mb-10 ${isLight ? 'text-[#3d5470]' : 'text-[#4A6080]'}`}>
           All prices in AUD · Monthly billing · Cancel anytime · No lock-in contracts
         </p>
+
+        {/* DIY vs DigiSurf Comparison Toggle */}
+        <div className="max-w-3xl mx-auto">
+          <button
+            onClick={() => setShowComparison(!showComparison)}
+            className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl border transition-all duration-200 text-sm font-semibold ${
+              isLight
+                ? 'border-[rgba(13,107,202,0.2)] bg-white text-[#0a1f6e] hover:border-[#0d6bca]/40'
+                : 'border-white/[0.08] bg-white/[0.03] text-white hover:border-white/20'
+            }`}
+          >
+            <span>Why not just use a $99/month DIY tool?</span>
+            <span className="text-[#00D4FF] text-lg">{showComparison ? '−' : '+'}</span>
+          </button>
+
+          {showComparison && (
+            <div className="mt-4 glass-card rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-wider px-6 py-3 border-b border-white/[0.06]">
+                <span className={isLight ? 'text-[#3d5470]' : 'text-[#4A6080]'}>What you need</span>
+                <span className="text-[#4A6080] text-center">DIY Tools ($99/mo)</span>
+                <span className="text-[#00D4FF] text-center">DigiSurf</span>
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className={`grid grid-cols-3 px-6 py-4 text-sm ${
+                    i < comparison.length - 1 ? 'border-b border-white/[0.04]' : ''
+                  }`}
+                >
+                  <span className={isLight ? 'text-[#1a2e50] font-medium' : 'text-[#F0F6FF] font-medium'}>{row.feature}</span>
+                  <span className="text-[#4A6080] text-center">{row.diy}</span>
+                  <span className="text-[#00D4FF] text-center font-medium">{row.digisurf}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
       </div>
     </section>
   )

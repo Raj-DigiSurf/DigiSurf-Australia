@@ -1,12 +1,12 @@
 'use client'
 
-import { ArrowRight, Phone, Mail, Shield, Clock, MapPin, Server } from 'lucide-react'
+import { ArrowRight, Phone, Mail, Shield, Clock, MapPin, Wifi } from 'lucide-react'
 
 const trustBadges = [
   { icon: Shield, label: 'No Lock-in Contracts' },
   { icon: Clock, label: '30-Day ROI Guarantee' },
-  { icon: MapPin, label: 'Australian Business' },
-  { icon: Server, label: 'Australian Servers' },
+  { icon: MapPin, label: 'Australian Registered' },
+  { icon: Wifi, label: '100% Remote Setup' },
 ]
 
 export function FinalCTA() {

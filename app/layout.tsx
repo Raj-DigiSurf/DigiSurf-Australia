@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/next';
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
@@ -91,6 +92,7 @@ export default function RootLayout({
           <ChatWidget />
           <CookieBanner />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

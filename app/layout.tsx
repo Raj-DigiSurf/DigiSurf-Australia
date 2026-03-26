@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Montserrat } from "next/font/google";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
@@ -75,6 +76,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU" className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
+      <head>
+        <Script
+          id="hs-script-loader"
+          src="//js-na2.hs-scripts.com/245675138.js"
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         <ThemeProvider>
           <Navbar />

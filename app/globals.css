@@ -208,6 +208,39 @@ body {
   color: #354d65 !important;
 }
 
+/* ── Light Mode: Policy/legal pages (<main> element) ── */
+.light main {
+  background-color: #F0F5FF !important;
+}
+
+.light main .text-white {
+  color: #0a1f6e !important;
+}
+
+.light main [class*="text-[#7A8FA6]"] {
+  color: #3d5470 !important;
+}
+
+.light main [class*="text-[#4A6080]"] {
+  color: #354d65 !important;
+}
+
+.light main [class*="border-white"] {
+  border-color: rgba(13,107,202,0.12) !important;
+}
+
+.light main [class*="bg-[#050B18]"] {
+  background-color: #F0F5FF !important;
+}
+
+.light main table {
+  color: #3d5470;
+}
+
+.light main .prose-invert {
+  color: #3d5470;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), system-ui, sans-serif;
 }

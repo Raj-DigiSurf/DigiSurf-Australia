@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Phone, Mail, Shield, Clock, MapPin, Wifi } from 'lucide-react'
+import { ArrowRight, Phone, Calendar, Shield, Clock, MapPin, Wifi } from 'lucide-react'
 
 const trustBadges = [
   { icon: Shield, label: 'No Lock-in Contracts' },
@@ -36,10 +36,12 @@ export function FinalCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
           <a
-            href="mailto:info@digisurfaustralia.com.au"
+            href="https://meetings-na2.hubspot.com/henish"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 w-full md:w-auto justify-center"
           >
-            <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
             Book a Free Strategy Call
             <ArrowRight className="w-4 h-4" />
           </a>

@@ -8,6 +8,7 @@ import { Portfolio } from '@/components/sections/Portfolio'
 import { ROICalculator } from '@/components/sections/ROICalculator'
 import { Pricing } from '@/components/sections/Pricing'
 import { FAQ } from '@/components/sections/FAQ'
+import { ContactForm } from '@/components/sections/ContactForm'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { ArrowRight, Phone } from 'lucide-react'
 
@@ -69,8 +70,9 @@ export default function Home() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              href="https://meetings-na2.hubspot.com/henish"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4"
             >
               Book Free Strategy Call
@@ -107,6 +109,7 @@ export default function Home() {
       <ROICalculator />
       <Pricing />
       <FAQ />
+      <ContactForm />
       <FinalCTA />
     </>
   )

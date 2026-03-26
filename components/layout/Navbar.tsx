@@ -81,12 +81,14 @@ export function Navbar() {
               >
                 +61 498 541 273
               </a>
-              <button
-                onClick={() => scrollTo('#contact')}
+              <a
+                href="https://meetings-na2.hubspot.com/henish"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-sm px-5 py-2.5"
               >
                 Book Free Call
-              </button>
+              </a>
             </div>
 
             {/* Mobile Toggle */}
@@ -128,12 +130,14 @@ export function Navbar() {
                 <ThemeToggle />
               </div>
               <p className={`text-xs text-center ${isLight ? 'text-[#4a6080]' : 'text-[#4A6080]'}`}>info@digisurfaustralia.com.au</p>
-              <button
-                onClick={() => scrollTo('#contact')}
+              <a
+                href="https://meetings-na2.hubspot.com/henish"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-center text-sm"
               >
                 Book Free Call
-              </button>
+              </a>
             </div>
           </div>
         </div>

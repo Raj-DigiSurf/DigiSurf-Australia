@@ -108,7 +108,7 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 pointer-events-none">
 
       {/* Chat panel */}
       <div
@@ -240,7 +240,7 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(o => !o)}
         aria-label={open ? 'Close chat' : 'Open chat'}
-        className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#00D4FF] to-[#3B7BFF] flex items-center justify-center shadow-lg shadow-[#00D4FF]/25 transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#00D4FF] to-[#3B7BFF] flex items-center justify-center shadow-lg shadow-[#00D4FF]/25 transition-transform duration-200 hover:scale-105 active:scale-95 pointer-events-auto"
       >
         <div className={`transition-all duration-200 ${open ? 'opacity-0 scale-50 absolute' : 'opacity-100 scale-100'}`}>
           <MessageCircle className="w-6 h-6 text-[#050B18]" />

@@ -98,7 +98,8 @@ body {
 .light #how-it-works,
 .light #case-studies,
 .light #pricing,
-.light #contact {
+.light #contact,
+.light #contact-form {
   background-color: #F0F5FF !important;
 }
 
@@ -231,6 +232,15 @@ body {
 
 .light main [class*="bg-[#050B18]"] {
   background-color: #F0F5FF !important;
+}
+
+.light main [class*="bg-[#0D1526]"] {
+  background-color: #E8EFFA !important;
+}
+
+/* #e0eaf5 is near-white — unreadable on light backgrounds */
+.light main [class*="text-[#e0eaf5]"] {
+  color: #1a2e50 !important;
 }
 
 .light main table {
@@ -465,6 +475,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Selection ────────────────────────────── */
 ::selection { background: rgba(0,212,255,0.2); color: #F0F6FF; }
+
+/* ── Touch devices — improve tap responsiveness ── */
+button, a, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable glass-card lift on touch-only devices (hover fires on tap and gets stuck) */
+@media (hover: none) {
+  .glass-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .glass-card {
+    transition: border-color 0.3s ease !important;
+  }
+}
 
 /* ── Reduced Motion ───────────────────────── */
 @media (prefers-reduced-motion: reduce) {

@@ -15,7 +15,7 @@ const industries = [
       'Automated appointment reminders (SMS + email)',
       'AI-generated referral letters and medical summaries',
       'Patient intake forms auto-filled and digitised',
-      'HIPAA-aware — all data on Australian servers',
+      'Privacy-aware — compliant with Australian Privacy Act 1988',
     ],
     result: '"Our admin time dropped by 18 hours per week." — Bulk billing clinic, Sydney',
     color: '#00D4FF',
@@ -159,12 +159,14 @@ export function Industries() {
               ))}
             </ul>
             <div className="mt-8">
-              <button
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary w-full text-center text-sm"
+              <a
+                href="https://meetings-na2.hubspot.com/henish"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full text-center text-sm block"
               >
                 Get a Free {current.label} AI Audit
-              </button>
+              </a>
             </div>
           </div>
         </div>

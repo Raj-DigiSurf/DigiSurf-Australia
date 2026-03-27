@@ -1,29 +1,45 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, ChevronDown, Phone, Bot, MessageSquare, Mic2, Share2, Zap } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { Logo, LogoMark } from '@/components/ui/Logo'
+import Link from 'next/link'
+import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
+const HUBSPOT = 'https://meetings-na2.hubspot.com/henish'
+
+const serviceDropdown = [
+  { label: 'AI Receptionist', href: '/ai-receptionist', icon: Phone, desc: '24/7 call answering & booking' },
+  { label: 'AI Chatbot', href: '/ai-chatbot', icon: MessageSquare, desc: 'Website & DM lead capture' },
+  { label: 'AI Voice Agent', href: '/ai-voice-agent', icon: Mic2, desc: 'Inbound & outbound calls' },
+  { label: 'AI Social Media', href: '/ai-social-media', icon: Share2, desc: 'Daily content, zero effort' },
+  { label: 'All AI Services', href: '/ai-automation', icon: Zap, desc: 'Full automation overview' },
+]
+
 const navLinks = [
-  { label: 'Services', href: '#services' },
   { label: 'Industries', href: '#industries' },
   { label: 'Process', href: '#how-it-works' },
-  { label: 'Portfolio', href: '#portfolio' },
   { label: 'ROI', href: '#roi-calculator' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
 
+const pageLinks = [
+  { label: 'Blog', href: '/blog' },
+]
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => { setMounted(true) }, [])
-
   const isLight = mounted && theme === 'light'
 
   useEffect(() => {
@@ -34,8 +50,19 @@ export function Navbar() {
 
   const scrollTo = (href: string) => {
     setOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const openDropdown = () => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current)
+    setServicesOpen(true)
+  }
+
+  const closeDropdown = () => {
+    hoverTimeout.current = setTimeout(() => setServicesOpen(false), 120)
   }
 
   return (
@@ -61,6 +88,69 @@ export function Navbar() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
+
+              {/* Home */}
+              <Link
+                href="/"
+                className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+              >
+                Home
+              </Link>
+
+              {/* Services dropdown */}
+              <div
+                ref={dropdownRef}
+                className="relative"
+                onMouseEnter={openDropdown}
+                onMouseLeave={closeDropdown}
+              >
+                <button
+                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+                >
+                  Services
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* Dropdown panel */}
+                {servicesOpen && (
+                  <div
+                    className={`absolute top-full left-0 mt-1 w-64 rounded-2xl shadow-2xl border overflow-hidden z-50 ${
+                      isLight
+                        ? 'bg-white border-[rgba(13,107,202,0.15)] shadow-[rgba(13,107,202,0.12)]'
+                        : 'bg-[#0D1526] border-white/[0.08] shadow-black/50'
+                    }`}
+                    onMouseEnter={openDropdown}
+                    onMouseLeave={closeDropdown}
+                  >
+                    <div className="p-2">
+                      {serviceDropdown.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setServicesOpen(false)}
+                          className={`flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-all duration-150 ${
+                            isLight
+                              ? 'hover:bg-[#0d6bca]/[0.06]'
+                              : 'hover:bg-white/[0.05]'
+                          }`}
+                        >
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                            isLight ? 'bg-[#0d6bca]/[0.08] group-hover:bg-[#0d6bca]/[0.14]' : 'bg-[rgba(0,212,255,0.08)] group-hover:bg-[rgba(0,212,255,0.14)]'
+                          }`}>
+                            <item.icon className={`w-4 h-4 ${isLight ? 'text-[#0d6bca]' : 'text-[#00D4FF]'}`} />
+                          </div>
+                          <div>
+                            <p className={`text-sm font-semibold leading-tight ${isLight ? 'text-[#1a2e50]' : 'text-white'}`}>{item.label}</p>
+                            <p className={`text-xs mt-0.5 ${isLight ? 'text-[#4a6080]' : 'text-[#4A6080]'}`}>{item.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Scroll links */}
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -69,6 +159,17 @@ export function Navbar() {
                 >
                   {link.label}
                 </button>
+              ))}
+
+              {/* Page links */}
+              {pageLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+                >
+                  {link.label}
+                </Link>
               ))}
             </nav>
 
@@ -82,7 +183,7 @@ export function Navbar() {
                 +61 498 541 273
               </a>
               <a
-                href="https://meetings-na2.hubspot.com/henish"
+                href={HUBSPOT}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-sm px-5 py-2.5"
@@ -103,16 +204,57 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Overlay */}
+      {/* Mobile backdrop — only rendered when open to avoid iOS/iPad touch-blocking via backdrop-filter */}
+      {open && (
+        <div
+          className="fixed inset-0 z-40 lg:hidden bg-black/70"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
+      {/* Mobile slide panel */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed top-0 right-0 h-full w-72 z-40 lg:hidden backdrop-blur-xl transition-transform duration-300 ${
+          open ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
+        } ${isLight ? 'bg-[rgba(240,245,255,0.97)] border-l border-[rgba(13,107,202,0.15)]' : 'bg-[#0D1526]/95 border-l border-white/[0.08]'}`}
       >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
-        <div className={`absolute top-0 right-0 h-full w-72 backdrop-blur-xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'} ${isLight ? 'bg-[rgba(240,245,255,0.97)] border-l border-[rgba(13,107,202,0.15)]' : 'bg-[#0D1526]/95 border-l border-white/[0.08]'}`}>
-          <div className="flex flex-col h-full pt-20 px-6 pb-10">
+          <div className="flex flex-col h-full pt-20 px-6 pb-10 overflow-y-auto">
             <nav className="flex flex-col gap-1">
+
+              {/* Home */}
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className={`text-left px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+              >
+                Home
+              </Link>
+
+              {/* Services expandable */}
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className={`flex items-center justify-between px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+              >
+                Services
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileServicesOpen && (
+                <div className={`ml-4 flex flex-col gap-1 rounded-xl p-2 ${isLight ? 'bg-[#0d6bca]/[0.04]' : 'bg-white/[0.03]'}`}>
+                  {serviceDropdown.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => { setOpen(false); setMobileServicesOpen(false) }}
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+                    >
+                      <item.icon className={`w-4 h-4 ${isLight ? 'text-[#0d6bca]' : 'text-[#00D4FF]'}`} />
+                      <span className="text-sm font-medium">{item.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              {/* Scroll links */}
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -122,16 +264,28 @@ export function Navbar() {
                   {link.label}
                 </button>
               ))}
+
+              {/* Page links */}
+              {pageLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-left px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${isLight ? 'text-[#1a2e50] hover:text-[#0d6bca] hover:bg-[#0d6bca]/[0.06]' : 'text-[#7A8FA6] hover:text-white hover:bg-white/[0.05]'}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
+
             <div className="mt-auto flex flex-col gap-4">
-              {/* Theme toggle row */}
               <div className={`flex items-center justify-between px-4 py-3 rounded-xl ${isLight ? 'bg-[#0d6bca]/[0.06]' : 'bg-white/[0.03]'}`}>
                 <span className={`text-sm font-medium ${isLight ? 'text-[#1a2e50]' : 'text-[#7A8FA6]'}`}>Theme</span>
                 <ThemeToggle />
               </div>
               <p className={`text-xs text-center ${isLight ? 'text-[#4a6080]' : 'text-[#4A6080]'}`}>info@digisurfaustralia.com.au</p>
               <a
-                href="https://meetings-na2.hubspot.com/henish"
+                href={HUBSPOT}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-center text-sm"
@@ -141,7 +295,6 @@ export function Navbar() {
             </div>
           </div>
         </div>
-      </div>
     </>
   )
 }

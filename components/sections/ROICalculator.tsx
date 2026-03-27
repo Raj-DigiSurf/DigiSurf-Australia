@@ -174,12 +174,14 @@ export function ROICalculator() {
               </div>
             </div>
 
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary w-full text-center"
+            <a
+              href="https://meetings-na2.hubspot.com/henish"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full text-center block"
             >
               Get My Free AI Audit — Save ${results.annualValueSaved.toLocaleString()}/yr
-            </button>
+            </a>
             <p className="text-xs text-center text-[#4A6080]">* Estimates based on average client data. Actual results may vary.</p>
           </div>
         </div>

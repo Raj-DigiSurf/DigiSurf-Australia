@@ -3,7 +3,9 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'DigiSurf Australia Privacy Policy — how we collect, use, and protect your information.',
+  description: 'DigiSurf Australia Privacy Policy — how we collect, use, and protect your information under the Australian Privacy Act 1988.',
+  robots: { index: false, follow: false },
+  alternates: { canonical: 'https://www.digisurfaustralia.com.au/privacy' },
 }
 
 export default function PrivacyPolicy() {
@@ -21,7 +23,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">1. About Us</h2>
-            <p>DigiSurf Australia (ABN: 28 448 210 292) is an Australian-registered AI automation business operated by Raj, based in Sydney, Australia. This website is operated as a remote-first online business. This policy explains how we handle your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
+            <p>DigiSurf Australia (ABN: 28 448 210 292) is an Australian-registered AI automation business based in Sydney, Australia. This website is operated as a remote-first online business. This policy explains how we handle your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).</p>
           </section>
 
           <section>

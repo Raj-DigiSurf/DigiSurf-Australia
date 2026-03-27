@@ -4,6 +4,8 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: 'DigiSurf Australia Cookie Policy — what cookies we use and how to manage them.',
+  robots: { index: false, follow: false },
+  alternates: { canonical: 'https://www.digisurfaustralia.com.au/cookies' },
 }
 
 export default function CookiePolicy() {

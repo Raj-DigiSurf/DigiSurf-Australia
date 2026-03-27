@@ -13,8 +13,8 @@ const faqs = [
     a: 'None at all. We handle everything — from design and build to testing and launch. All you need to do is answer our questions about your business during the onboarding call. We\'ll take care of the rest.',
   },
   {
-    q: 'Is my data stored in Australia?',
-    a: 'Yes. All client data and AI systems are hosted on Australian servers (Sydney and Melbourne regions). This is particularly important for healthcare and legal clients operating under Australian Privacy Act obligations.',
+    q: 'Where is my data stored?',
+    a: 'Your website and contact data is hosted via Vercel (US-based infrastructure). Our AI chatbot is powered by Anthropic (also US-based). Both providers are bound by strict data processing agreements. We are transparent about this in our Privacy Policy and comply with the Australian Privacy Act 1988. We do not sell or share your data with third parties.',
   },
   {
     q: 'Can DigiSurf integrate with my existing software?',

@@ -51,7 +51,7 @@ export function ContactForm() {
   }`
 
   return (
-    <section className="py-20 bg-[#050B18] relative">
+    <section id="contact-form" className="py-20 bg-[#050B18] relative">
       <div className="absolute inset-0 bg-dots opacity-10" />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -61,7 +61,7 @@ export function ContactForm() {
             Prefer to Send a Message?
           </h2>
           <p className="text-[#7A8FA6] max-w-xl mx-auto">
-            Fill in your details and Raj will get back to you within one business day. Or skip the wait —
+            Fill in your details and we'll get back to you within one business day. Or skip the wait —
             <a
               href="https://meetings-na2.hubspot.com/henish"
               target="_blank"
@@ -79,7 +79,7 @@ export function ContactForm() {
             <div className="text-center py-8">
               <CheckCircle className="w-14 h-14 text-[#00D4FF] mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-              <p className="text-[#7A8FA6]">Thanks — Raj will be in touch within one business day.</p>
+              <p className="text-[#7A8FA6]">Thanks — we'll be in touch within one business day.</p>
               <button
                 onClick={() => setStatus('idle')}
                 className="mt-6 text-sm text-[#00D4FF] hover:underline"
@@ -97,7 +97,7 @@ export function ContactForm() {
                   <input
                     type="text"
                     required
-                    placeholder="Raj Smith"
+                    placeholder="Your Name"
                     value={form.name}
                     onChange={set('name')}
                     className={inputClass}

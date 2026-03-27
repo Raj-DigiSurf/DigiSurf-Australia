@@ -4,6 +4,8 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'DigiSurf Australia Terms of Service — the terms governing use of our website and services.',
+  robots: { index: false, follow: false },
+  alternates: { canonical: 'https://www.digisurfaustralia.com.au/terms' },
 }
 
 export default function TermsOfService() {

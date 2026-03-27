@@ -671,7 +671,7 @@ export function Portfolio() {
           <button
             onClick={() => { prev(); setPaused(true) }}
             aria-label="Previous project"
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+            className="w-11 h-11 rounded-full flex items-center justify-center transition-colors duration-200 active:scale-95"
             style={{
               background: isLight ? 'rgba(13,107,202,0.08)' : 'rgba(255,255,255,0.06)',
               border: isLight ? '1px solid rgba(13,107,202,0.2)' : '1px solid rgba(255,255,255,0.1)',
@@ -688,7 +688,7 @@ export function Portfolio() {
                 key={i}
                 onClick={() => { setCurrent(i); setPaused(true) }}
                 aria-label={`Go to project ${i + 1}`}
-                className="h-2 rounded-full transition-all duration-300"
+                className="h-2 rounded-full transition-all duration-300 min-w-[8px]"
                 style={{
                   width: i === current ? 24 : 8,
                   background: i === current
@@ -704,7 +704,7 @@ export function Portfolio() {
           <button
             onClick={() => { next(); setPaused(true) }}
             aria-label="Next project"
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+            className="w-11 h-11 rounded-full flex items-center justify-center transition-colors duration-200 active:scale-95"
             style={{
               background: isLight ? 'rgba(13,107,202,0.08)' : 'rgba(255,255,255,0.06)',
               border: isLight ? '1px solid rgba(13,107,202,0.2)' : '1px solid rgba(255,255,255,0.1)',

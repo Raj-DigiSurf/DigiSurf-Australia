@@ -7,22 +7,22 @@ import { useTheme } from 'next-themes'
 import { Logo } from '@/components/ui/Logo'
 
 const services = [
-  { label: 'AI Receptionist', href: '#services' },
-  { label: 'AI Chatbots', href: '#services' },
-  { label: 'AI Voice Agents', href: '#services' },
-  { label: 'Social Media AI', href: '#services' },
-  { label: 'Document Automation', href: '#services' },
+  { label: 'AI Receptionist', href: '/ai-receptionist' },
+  { label: 'AI Chatbot', href: '/ai-chatbot' },
+  { label: 'AI Voice Agent', href: '/ai-voice-agent' },
+  { label: 'AI Social Media', href: '/ai-social-media' },
+  { label: 'All AI Services', href: '/ai-automation' },
 ]
 
 const company = [
-  { label: 'Services', href: '#services' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'ROI Calculator', href: '#roi-calculator' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/#industries' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'ROI Calculator', href: '/#roi-calculator' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 const socials = [
@@ -37,7 +37,7 @@ const socials = [
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/digisurf.au/',
+    href: 'https://www.facebook.com/digisurfaustralia',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -133,12 +133,14 @@ export function Footer() {
             <p className="mb-5 text-sm text-[#7A8FA6] leading-relaxed">
               Book a free 15-minute strategy call. No commitment, no jargon — just practical AI advice for your business.
             </p>
-            <Link
-              href="#contact"
+            <a
+              href="https://meetings-na2.hubspot.com/henish"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-ds-accent text-[#050B18] font-semibold text-sm px-5 py-3 rounded-lg hover:opacity-90 transition-all w-full text-center"
             >
               Book a Free Call
-            </Link>
+            </a>
 
             {/* Socials */}
             <div className="mt-6 flex items-center gap-3">
@@ -149,7 +151,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-[#7A8FA6] hover:border-[#00D4FF] hover:text-[#00D4FF] transition-all duration-200"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] text-[#7A8FA6] hover:border-[#00D4FF] hover:text-[#00D4FF] transition-all duration-200"
                 >
                   {icon}
                 </a>
@@ -163,7 +165,7 @@ export function Footer() {
           <p className="text-xs text-[#7A8FA6]">
             © {new Date().getFullYear()} DigiSurf Australia Pty Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-3 sm:gap-6 text-xs text-[#7A8FA6]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6 text-xs text-[#7A8FA6] justify-center sm:justify-end">
             <span>ABN: 28 448 210 292</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

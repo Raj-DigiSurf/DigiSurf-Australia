@@ -1,0 +1,44 @@
+name: Auto-Generate Blog Post
+
+on:
+  # Run every 2 weeks on Monday at 9am AEST (11pm UTC Sunday)
+  schedule:
+    - cron: '0 23 * * 0/14'
+  # Allow manual trigger with optional topic override
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Blog topic (leave empty for AI to pick)'
+        required: false
+        default: ''
+
+jobs:
+  generate-blog-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate blog post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOPIC_OVERRIDE: ${{ github.event.inputs.topic }}
+        run: node .github/scripts/generate-blog.mjs
+
+      - name: Commit and push new blog post
+        run: |
+          git config --global user.name "DigiSurf Blog Bot"
+          git config --global user.email "info@digisurfaustralia.com.au"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: auto-generate blog post [skip ci]"
+          git push

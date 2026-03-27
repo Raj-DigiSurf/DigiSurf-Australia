@@ -60,7 +60,7 @@ const plans = [
     features: [
       { text: 'Unlimited AI automations', included: true },
       { text: 'Custom software integrations', included: true },
-      { text: 'Dedicated account manager (Raj)', included: true },
+      { text: 'Dedicated account manager', included: true },
       { text: 'Priority support', included: true },
       { text: 'Monthly strategy review', included: true },
       { text: 'Staff training included', included: true },
@@ -76,7 +76,7 @@ const plans = [
 const comparison = [
   { feature: 'Setup required', diy: 'You do it all', digisurf: 'We handle everything' },
   { feature: 'Goes live', diy: 'Weeks/months', digisurf: '1–2 weeks' },
-  { feature: 'Support when it breaks', diy: 'YouTube tutorials', digisurf: 'Raj fixes it remotely' },
+  { feature: 'Support when it breaks', diy: 'YouTube tutorials', digisurf: 'We fix it remotely' },
   { feature: 'Customisation', diy: 'Templates only', digisurf: 'Built for your business' },
   { feature: 'AI quality', diy: 'Generic responses', digisurf: 'Trained on your business' },
   { feature: 'Your time cost', diy: '10–20 hrs/month', digisurf: '0 hrs — we manage it' },
@@ -253,7 +253,8 @@ export function Pricing() {
 
           {showComparison && (
             <div className="mt-4 glass-card rounded-2xl overflow-hidden">
-              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-wider px-6 py-3 border-b border-white/[0.06]">
+              {/* Desktop header */}
+              <div className="hidden sm:grid sm:grid-cols-3 text-xs font-bold uppercase tracking-wider px-6 py-3 border-b border-white/[0.06]">
                 <span className={isLight ? 'text-[#3d5470]' : 'text-[#4A6080]'}>What you need</span>
                 <span className="text-[#4A6080] text-center">DIY Tools ($99/mo)</span>
                 <span className="text-[#00D4FF] text-center">DigiSurf</span>
@@ -261,13 +262,22 @@ export function Pricing() {
               {comparison.map((row, i) => (
                 <div
                   key={row.feature}
-                  className={`grid grid-cols-3 px-6 py-4 text-sm ${
-                    i < comparison.length - 1 ? 'border-b border-white/[0.04]' : ''
-                  }`}
+                  className={`px-5 py-4 ${i < comparison.length - 1 ? 'border-b border-white/[0.04]' : ''}`}
                 >
-                  <span className={isLight ? 'text-[#1a2e50] font-medium' : 'text-[#F0F6FF] font-medium'}>{row.feature}</span>
-                  <span className="text-[#4A6080] text-center">{row.diy}</span>
-                  <span className="text-[#00D4FF] text-center font-medium">{row.digisurf}</span>
+                  {/* Mobile: stacked */}
+                  <div className="sm:hidden">
+                    <p className={`text-sm font-semibold mb-2 ${isLight ? 'text-[#1a2e50]' : 'text-[#F0F6FF]'}`}>{row.feature}</p>
+                    <div className="flex gap-3 text-xs">
+                      <span className="flex-1 bg-white/[0.03] rounded-lg px-3 py-2 text-[#4A6080]"><span className="block font-semibold text-[#4A6080] mb-0.5">DIY</span>{row.diy}</span>
+                      <span className="flex-1 bg-[rgba(0,212,255,0.05)] rounded-lg px-3 py-2 text-[#00D4FF]"><span className="block font-semibold text-[#00D4FF] mb-0.5">DigiSurf</span>{row.digisurf}</span>
+                    </div>
+                  </div>
+                  {/* Desktop: grid */}
+                  <div className="hidden sm:grid sm:grid-cols-3 text-sm">
+                    <span className={isLight ? 'text-[#1a2e50] font-medium' : 'text-[#F0F6FF] font-medium'}>{row.feature}</span>
+                    <span className="text-[#4A6080] text-center">{row.diy}</span>
+                    <span className="text-[#00D4FF] text-center font-medium">{row.digisurf}</span>
+                  </div>
                 </div>
               ))}
             </div>

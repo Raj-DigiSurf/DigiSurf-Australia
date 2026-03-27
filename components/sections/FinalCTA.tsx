@@ -34,7 +34,7 @@ export function FinalCTA() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <a
             href="https://meetings-na2.hubspot.com/henish"
             target="_blank"

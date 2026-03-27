@@ -408,12 +408,15 @@ function ServiceModal({ service, isLight, onClose }: ModalProps) {
 
           {/* CTA */}
           <div className={`mt-6 pt-6 border-t ${isLight ? 'border-[rgba(13,107,202,0.1)]' : 'border-white/[0.06]'} flex flex-col sm:flex-row items-center gap-3`}>
-            <button
-              onClick={() => { onClose(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+            <a
+              href="https://meetings-na2.hubspot.com/henish"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
               className="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm px-6 py-3"
             >
               Book a Free Strategy Call <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
             <button
               onClick={onClose}
               className={`text-sm font-medium transition-colors ${isLight ? 'text-[#3d5470] hover:text-[#0d6bca]' : 'text-[#7A8FA6] hover:text-white'}`}
@@ -505,12 +508,14 @@ export function Services() {
           {/* Bottom CTA */}
           <div className="mt-14 text-center">
             <p className={`mb-5 ${isLight ? 'text-[#3d5470]' : 'text-[#7A8FA6]'}`}>Don&apos;t see what you need? We build fully custom AI solutions too.</p>
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="https://meetings-na2.hubspot.com/henish"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-ghost inline-flex items-center gap-2"
             >
               Talk to us about your business <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </section>

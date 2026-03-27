@@ -217,6 +217,26 @@ if (existingSlugs.includes(post.slug)) {
 
 console.log(`Generated: "${post.title}" (${post.slug})`)
 
+// ─── Validate & fix related links against known slugs ────────────────────────
+const knownSlugs = existingSlugs
+if (post.relatedLinks?.length) {
+  post.relatedLinks = post.relatedLinks
+    .map(link => {
+      const hrefSlug = link.href.replace('/blog/', '')
+      if (knownSlugs.includes(hrefSlug)) return link
+      // Slug doesn't exist — find closest match by label keyword
+      const keyword = link.label.split(' ').slice(0, 3).join(' ').toLowerCase()
+      const match = knownSlugs.find(s => s.includes(keyword.split(' ')[0]) || s.includes(keyword.split(' ')[1]))
+      if (match) {
+        console.warn(`Fixed related link: ${link.href} → /blog/${match}`)
+        return { ...link, href: `/blog/${match}` }
+      }
+      return null // remove unresolvable links
+    })
+    .filter(Boolean)
+    .slice(0, 3) // max 3 related links
+}
+
 // ─── JSX escape ───────────────────────────────────────────────────────────────
 function e(str) {
   if (!str) return ''
@@ -263,12 +283,14 @@ ${items}
 
 function renderBullets(bullets) {
   if (!bullets?.length) return ''
-  const items = bullets.map((b, i) =>
-    `                <div key={${i}} className="glass-card rounded-xl p-4 flex items-start gap-3">
+  const items = bullets.map((b, i) => {
+    // Claude sometimes returns objects instead of strings — extract text safely
+    const text = typeof b === 'string' ? b : (b.text || b.title || b.label || b.description || '')
+    return `                <div key={${i}} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">${e(b)}</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">${e(text)}</span>
                 </div>`
-  ).join('\n')
+  }).join('\n')
   return `              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
 ${items}
               </div>`

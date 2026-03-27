@@ -163,27 +163,27 @@ export default function BlogPost() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                 <div key={0} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Phone answering and missed call follow-up</span>
                 </div>
                 <div key={1} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Appointment scheduling and reminders</span>
                 </div>
                 <div key={2} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Invoice chasing and payment follow-ups</span>
                 </div>
                 <div key={3} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Responding to repetitive customer enquiries</span>
                 </div>
                 <div key={4} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Social media content creation and scheduling</span>
                 </div>
                 <div key={5} className="glass-card rounded-xl p-4 flex items-start gap-3">
                   <Check className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
-                  <span className="text-[#e0eaf5] text-sm leading-relaxed">[object Object]</span>
+                  <span className="text-[#e0eaf5] text-sm leading-relaxed">Lead capture and qualification from website/DMs</span>
                 </div>
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function BlogPost() {
               <div className="mt-6 sm:mt-8 text-left">
                 <p className="text-[#4A6080] text-xs uppercase tracking-wider mb-3">Related Articles</p>
                 <div className="flex flex-wrap gap-3">
-                    <Link key="/blog/how-ai-saves-australian-small-businesses-15-hours-per-week" href="/blog/how-ai-saves-australian-small-businesses-15-hours-per-week" className="text-sm text-[#00D4FF] hover:underline">How AI Saves Australian Small Businesses 15+ Hours Per Week →</Link>
+                    <Link key="/blog/how-ai-saves-australian-businesses-time" href="/blog/how-ai-saves-australian-businesses-time" className="text-sm text-[#00D4FF] hover:underline">How AI Saves Australian Small Businesses 15+ Hours Per Week →</Link>
                     <Link key="/blog/ai-automation-for-small-business-australia" href="/blog/ai-automation-for-small-business-australia" className="text-sm text-[#00D4FF] hover:underline">AI Automation for Small Business in Australia: A Complete Guide →</Link>
                     <Link key="/blog/ai-receptionist-vs-human-receptionist" href="/blog/ai-receptionist-vs-human-receptionist" className="text-sm text-[#00D4FF] hover:underline">AI Receptionist vs Human Receptionist: Which Is Right for Your Business? →</Link>
                 </div>

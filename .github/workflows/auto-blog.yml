@@ -1,9 +1,9 @@
 name: Auto-Generate Blog Post
 
 on:
-  # Run every 2 weeks on Monday at 9am AEST (11pm UTC Sunday)
+  # Run every Monday at 9am AEST (11pm UTC Sunday)
   schedule:
-    - cron: '0 23 * * 0/14'
+    - cron: '0 23 * * 0'
   # Allow manual trigger with optional topic override
   workflow_dispatch:
     inputs:

@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    href: '/blog/ai-dental-clinics-medical-practices-australia',
+    slug: 'ai-dental-clinics-medical-practices-australia',
+    title: 'AI for Dental Clinics and Medical Practices in Australia: A Practical Guide',
+    excerpt: 'Dental clinics and medical practices across Australia are automating routine tasks with AI. Here\'s what actually works and why it matters for your practice.',
+    date: '27 March 2026',
+    dateISO: '2026-03-27',
+    readTime: '7 min read',
+    category: 'Guide',
+    categoryColor: '#00D4FF',
+  },
+  {
     href: '/blog/ai-automation-roi-calculate-savings-before-start',
     slug: 'ai-automation-roi-calculate-savings-before-start',
     title: 'AI Automation ROI: How to Calculate Your Savings Before You Start',

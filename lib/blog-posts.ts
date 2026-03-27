@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    href: '/blog/ai-automation-roi-calculate-savings-before-start',
+    slug: 'ai-automation-roi-calculate-savings-before-start',
+    title: 'AI Automation ROI: How to Calculate Your Savings Before You Start',
+    excerpt: 'Before you invest in AI automation, know exactly what you\'ll save. We show you the simple formula to calculate ROI for your business.',
+    date: '27 March 2026',
+    dateISO: '2026-03-27',
+    readTime: '6 min read',
+    category: 'Guide',
+    categoryColor: '#00D4FF',
+  },
+  {
     href: '/blog/ai-automation-for-small-business-australia',
     slug: 'ai-automation-for-small-business-australia',
     title: 'AI Automation for Small Business in Australia: A Complete Guide (2025)',

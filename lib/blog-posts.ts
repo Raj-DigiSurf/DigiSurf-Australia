@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    href: '/blog/ai-voice-agents-outbound-follow-up-calls-australia',
+    slug: 'ai-voice-agents-outbound-follow-up-calls-australia',
+    title: 'AI Voice Agents for Outbound Follow-Up Calls: The Australian Small Business Guide',
+    excerpt: 'AI voice agents handle outbound follow-ups automatically — calling leads, confirming appointments, and chasing unpaid invoices while you focus on the work that matters.',
+    date: '29 March 2026',
+    dateISO: '2026-03-29',
+    readTime: '6 min read',
+    category: 'Guide',
+    categoryColor: '#00D4FF',
+  },
+  {
     href: '/blog/ai-dental-clinics-medical-practices-australia',
     slug: 'ai-dental-clinics-medical-practices-australia',
     title: 'AI for Dental Clinics and Medical Practices in Australia: A Practical Guide',
